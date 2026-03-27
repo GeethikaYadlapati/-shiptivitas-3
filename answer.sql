@@ -23,9 +23,9 @@ SELECT AVG(NumUsers) AS dau_afterfeature FROM(
 );
 -- PART 2: Create a SQL query that indicates the number of status changes by card
 
-SELECT name, cardID, COUNT(card_change_history.id) 
+SELECT name, COUNT(card_change_history.id) 
 FROM card_change_history 
-JOIN card ON card_change_history.id = card.id 
+JOIN card ON card_change_history.cardID = card.id 
 WHERE oldStatus is NOT NULL GROUP BY cardID;
 
 
